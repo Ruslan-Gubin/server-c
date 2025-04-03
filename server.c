@@ -43,24 +43,6 @@ int main(void) {
 
     if (strcmp(method, "GET") == 0 && strcmp(uri, "/") == 0) {
       /*printf("method = GET, uri = '/' \n");*/
-      /*static int result[10000000];*/
-      int *result = (int *)malloc(10000000 * sizeof(int));
-      if (result == NULL) {
-        fprintf(stderr, "Error memory\n");
-        return 1;
-      }
-      static long long sum = 0;
-
-      for (int i = 0; i < 10000000; i++) {
-        result[i] = i * i * 2;
-      }
-
-      for (int i = 0; i < 10000000; i++) {
-        sum += result[i];
-      }
-
-      free(result);
-      /*printf("Сумма: %lld\n", sum);*/
     }
 
     /*cJSON *json = cJSON_CreateObject();*/
@@ -84,25 +66,21 @@ int main(void) {
                       /*"Last-Modified: Wed, 18 Jun 2003 16:05:58 GMT\r\n"*/
                       /*"ETag: \"56d-9989200-1132c580\"\r\n"*/
                       "Content-type: application/json\r\n"
-                      "Content-Length: 18\r\n"
+                      "Content-Length: 22\r\n"
                       "Accept-Ranges: bytes\r\n"
                       "Connection: close\r\n"
                       "\r\n"
                       "{\"name\": "
-                      "\"Ruslan\"}";
+                      "\"Response c\"}";
     /*"sdfkjsdnbfkjbs1"; // resp.text() */
 
     size_t response_length = strlen(response);
 
-    /*int valwrite = write(fd, response, response_length);*/
-    /*if (valwrite < 0) {*/
-    /*  perror("websocket (write)");*/
-    /*  continue;*/
-    /*};*/
-
-    if (fd > 0) {
-      send(fd, response, response_length, 0);
-    }
+    int valwrite = write(fd, response, response_length);
+    if (valwrite < 0) {
+      perror("websocket (write)");
+      continue;
+    };
 
     close(fd);
   }
