@@ -77,24 +77,19 @@ int main(void) {
     /*              "\r\n"*/
     /*              "{\"name\": \"Ruslan\"}";*/
 
-    char response[] =
-        "HTTP/1.1 200 OK\r\n"
-        "Access-Control-Allow-Origin: *\r\n"
-        "Server: webserver-c\r\n"
-        /*"Date: Thu, 19 Feb 2009 12:27:04 GMT\r\n"*/
-        /*"Last-Modified: Wed, 18 Jun 2003 16:05:58 GMT\r\n"*/
-        /*"ETag: \"56d-9989200-1132c580\"\r\n"*/
-        "Content-type: application/json\r\n"
-        "Content-Length: 268\r\n"
-        /*"Content-Length: 18\r\n"*/
-        "Accept-Ranges: bytes\r\n"
-        "Connection: close\r\n"
-        "\r\n"
-        "{\"name\": "
-        "\"Ruslan11111111111111111111111111111111111111111111111111111111111111"
-        "1111111111111111111111111111111111111111111111111111111111111111111111"
-        "1111111111111111111111111111111111111111111111111111111111111111111111"
-        "111111111111111111111111111111111111111111111111\"}";
+    char response[] = "HTTP/1.1 200 OK\r\n"
+                      "Access-Control-Allow-Origin: *\r\n"
+                      "Server: webserver-c\r\n"
+                      /*"Date: Thu, 19 Feb 2009 12:27:04 GMT\r\n"*/
+                      /*"Last-Modified: Wed, 18 Jun 2003 16:05:58 GMT\r\n"*/
+                      /*"ETag: \"56d-9989200-1132c580\"\r\n"*/
+                      "Content-type: application/json\r\n"
+                      "Content-Length: 18\r\n"
+                      "Accept-Ranges: bytes\r\n"
+                      "Connection: close\r\n"
+                      "\r\n"
+                      "{\"name\": "
+                      "\"Ruslan\"}";
     /*"sdfkjsdnbfkjbs1"; // resp.text() */
 
     size_t response_length = strlen(response);
